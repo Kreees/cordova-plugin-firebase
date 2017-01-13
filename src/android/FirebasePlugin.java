@@ -179,6 +179,9 @@ public class FirebasePlugin extends CordovaPlugin {
         if (callbackContext != null && bundle != null) {
             JSONObject json = new JSONObject();
             Set<String> keys = bundle.keySet();
+            if (!keys.contains("muon")) {
+                return;
+            }
             for (String key : keys) {
                 try {
                     json.put(key, bundle.get(key));
